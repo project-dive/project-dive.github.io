@@ -8,13 +8,17 @@ import IconButton from '@mui/material/IconButton';
 
 import DiveLogo from "../assets/ProjectDive.svg";
 
-export default function Navbar() {
+export default function Navbar({routes}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit" href="/">Project Dive!</Button>
-          <Button color="inherit" href="about">Om oss</Button>
+          {/* <Button color="inherit" href="/">Project Dive!</Button>
+          <Button color="inherit" href="about">Om oss</Button> */}
+          {routes.map((route, index) => (
+            <Button key={index} color="inherit"
+              href={route.path}>{route.title}</Button>
+          ))}
         </Toolbar>
       </AppBar>
     </Box>

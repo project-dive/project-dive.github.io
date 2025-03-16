@@ -1,5 +1,10 @@
+import React from 'react';
+
 import Home from './views/HomeView';
 import About from './views/AboutView';
+import ChapterInfo from './views/ChapterInfoView';
+import GuestBook from './views/GuestBookView';
+
 import Navbar from "./components/Navbar";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './App.css';
@@ -7,13 +12,42 @@ import './App.css';
 import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
+  const routes = [
+    {
+      component: Home,
+      path: "/",
+      title: "Project Dive",
+      icon: "home",
+    },
+    {
+      component: About,
+      path: "/about",
+      title: "Om oss",
+      icon: "info",
+    },
+    {
+      component: ChapterInfo,
+      path: "/chapter",
+      title: "Chapter Info",
+      icon: "info",
+    },
+    {
+      component: GuestBook,
+      path: "/guestbook",
+      title: "Guest Book",
+      icon: "book",
+    },
+  ]
+
+
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Navbar/>
+        <Navbar routes={routes}/>
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/about" element={<About/>}></Route>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={<route.component/>}></Route>
+          ))}
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
