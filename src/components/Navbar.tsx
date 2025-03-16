@@ -17,7 +17,7 @@ function MobileNavbar({ routes }) {
       <Drawer open={open} onClose={() => { setOpen(false) }} style={{ width: '50vw' }}>
         <Box sx={{ width: '50vw', minWidth: '200px' }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#FFF5C2', height: '100vh' }}>
-            <Button key={'diveLogo'} sx={style.mobileLogo} color="inherit" onClick={() => setOpen(!open)}>
+            <Button key={'diveLogo'} sx={style.mobileLogo} color="inherit" href='/' onClick={() => setOpen(false)}>
               <ProjectDive />
               <>{routes[0].title}</>
             </Button>
@@ -37,7 +37,7 @@ function MobileNavbar({ routes }) {
       </Drawer>
       <AppBar position="static" sx={style.appbar}>
         <Toolbar sx={style.mobileNavbar}>
-          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={() => setOpen(!open)}>
+          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={() => setOpen(true)}>
             <ProjectDive />
             <>{routes[0].title}</>
           </Button>
