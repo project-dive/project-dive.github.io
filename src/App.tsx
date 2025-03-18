@@ -29,19 +29,19 @@ function App() {
     {
       component: ChapterInfo,
       path: "/chapter",
-      title: "Chapter Info",
+      title: "Datasektionen",
       icon: "info",
     },
-    {
-      component: GuestBook,
-      path: "/guestbook",
-      title: "Guest Book",
-      icon: "book",
-    },
+    // {
+    //   component: GuestBook,
+    //   path: "/guestbook",
+    //   title: "Guest Book",
+    //   icon: "book",
+    // },
     {
       component: Events,
       path: "/events",
-      title: "Events",
+      title: "Event",
       icon: "book",
     },
     {

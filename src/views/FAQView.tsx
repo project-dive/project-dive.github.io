@@ -5,18 +5,11 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import data from "../../data/faq.json";
+
 export default function FAQ() {
-  const questions = [
-    {
-      question: "Vad är data?",
-      answer:
-        "Data är information som är lagrad i en dator och kan vara allt från text till bilder och ljud. Data kan användas för att analysera och dra slutsatser från, och är en viktig del av datavetenskapen.",
-    },
-    {
-      question: "Vad är datavetenskap?",
-      answer: "Datavetenskap är studiet av data",
-    },
-  ];
+  const questions = data.questions;
+  console.log(questions);
 
   return (
     <div style={style.container}>
@@ -25,6 +18,7 @@ export default function FAQ() {
         textAlign: "center",
       }}>Frequently Asked Questions</h1>
       {questions.map((question, index) => {
+        console.log(question);
         return (
           <Accordion key={index} style={style.accordion}>
             <AccordionSummary
