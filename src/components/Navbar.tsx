@@ -153,6 +153,7 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: '20px',
     marginBottom: '20px',
     minHeight: '164px',
   },
