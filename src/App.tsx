@@ -13,6 +13,7 @@ import './App.css';
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import banner from "./assets/borggardencrop.jpg";
 
 import Themes from "./utils/theme"
 
@@ -89,7 +90,7 @@ function App() {
   return (
     <HashRouter>
       <ThemeProvider theme={Themes}>
-        <img style={style.img} src='src/assets/borggardencrop.jpg'/>
+        <img style={style.img} src={banner}/>
         <Navbar routes={routes} />
         <Routes>
           {routes.map((route, index) => (
