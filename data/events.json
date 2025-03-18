@@ -1,0 +1,21 @@
+{
+    "events" : [
+        {
+            "name" : "Våffeldagen",
+            "date" : "2/2",
+            "text" : "placeholder text",
+            "link" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        },
+        {
+            "name" : "Midsommar",
+            "date" : "25/6",
+            "text" : "placeholder text"
+        },
+        {
+            "name" : "Halloween",
+            "date" : "30/10",
+            "text" : "placeholder text",
+            "link" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+    ]
+}
