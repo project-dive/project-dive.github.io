@@ -1,5 +1,5 @@
-import Button from "@mui/material/Button";
-import Typography from '@mui/material/Typography';
+import { Button, Typography, Divider } from "@mui/material";
+import Grid from '@mui/material/Grid2';
 import React from "react";
 import { useEffect } from 'react';
 
@@ -16,43 +16,64 @@ export default function Home() {
 
   const bubbles = [
     {
-      title: "Event",
-      description: "Finns det något event jag kan gå på och lära mig mer?",
-      link: "/events"
+      title: "23/3 - Öppet hus",
+      description: "Kom och snacka med oss på KTH:s öppet hus!",
+      link: "https://www.kth.se/utbildning/traffa-kth/oppet-hus/valkommen-till-oppet-hus-pa-kth-campus-1.1121800"
     },
     {
-      title: "Project Dive",
-      description: "Om oss",
-      link: "/about"
+      title: "25/3 - Våffeldagsfika",
+      description: "Käka våfflor och ställ frågor, Läs mer här!",
+      link: "https://ui.ungpd.com/Events/24a47591-e0b8-4341-8e1a-ac7a3bf201a0",
     },
-    {
-      title: "FAQ",
-      description: "Vad är data?",
-      link: "/faq"
-    }
   ]
   
   return ( 
+    
     <div style={style.container}>
-      <div style={isDesktop? style.subcontainerDesktop : style.subcontainerMobile}>
+      <Grid container
+        spacing={5}
+        direction="column"
+        sx={{
+          justifyContent: "flex-start",
+          alignItems: "center",
+          width: "90%"
+        }}
+      >
         <Typography variant='h1'>Datateknik på KTH</Typography>
         <Typography>
-          Datasektionen på KTH är hem för alla datateknikstudenter.  Här blandas studier med roliga event, hackathons, sittningar och en grym gemenskap. Vi fixar allt från episka fester till företagsevent där du kan nätverka och kanske säkra ditt framtida drömjobb. Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!
-          </Typography>
-      </div>
-      <Button sx={isDesktop? style.buttonDesktop: style.buttonMobile} href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH">SÖK HÄR!</Button>
-      <div style={style.bubbles}>
-      {
-        bubbles.map((bubble, index) => {
-          return (
-            <Button sx={isDesktop ? style.bubbleDesktop : style.bubbleMobile} href={bubble.link}>
-              <p style={isDesktop ? style.bubbleTitleDesktop : style.bubbleTitleMobile}>{bubble.title}</p>
-              <p style={isDesktop ? style.bubbleDescriptionDesktop : style.bubbleDescriptionMobile}>{bubble.description}</p>
-            </Button>
-          )
-        })
-      }
-      </div>
+          Datasektionen på KTH är hem för alla datateknikstudenter. Här blandas studier med roliga event, hackathons, sittningar och en 
+          grym gemenskap. Vi fixar allt från episka fester till företagsevent där du kan nätverka och kanske säkra ditt framtida drömjobb. 
+          Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det 
+          här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!
+        </Typography>
+        <Button variant="contained" href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH">SÖK HÄR!</Button>
+        
+        <Grid container direction="column" sx={{borderTop: 1, borderColor: "divider", pt: 3 }}>
+          <Typography variant='h3'>I blickfånget</Typography>
+          <Grid
+            container
+            spacing={5}
+            direction="row"
+            sx={{
+              justifyContent: "center",
+              alignItems: "flex-start",
+            }}
+          >
+            {
+              bubbles.map((bubble, index) => {
+                return (
+                  <Button
+                    sx={isDesktop ? style.bubbleDesktop : style.bubbleMobile} onClick={() => {window.open(bubble.link);}}
+                  >
+                    <p style={isDesktop ? style.bubbleTitleDesktop : style.bubbleTitleMobile}>{bubble.title}</p>
+                    <p style={isDesktop ? style.bubbleDescriptionDesktop : style.bubbleDescriptionMobile}>{bubble.description}</p>
+                  </Button>
+                )
+              })
+            }
+          </Grid>
+        </Grid>
+      </Grid>
     </div>
   )
 }
@@ -66,14 +87,6 @@ const style = {
     maxWidth: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  subcontainerDesktop: {
-    width: '80%',
-    maxWidth: '1400px',
-  },
-  subcontainerMobile: {
-    width: '90%',
-    maxWidth: '1400px',
   },
   p: {
     textAlign: 'start',
@@ -112,30 +125,24 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap',
+    textTransform: 'none'
   },
   bubbleDesktop: {
-    margin: '20px',
-    backgroundColor: '#FFF5C2',
-    marginTop: '20px',
     borderRadius: '50px',
-    width: '250px',
+    width: '40%',
     height: '150px',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     border: '5px solid #FAB510',
-    color: '#6C2C86',
+    textTransform: 'none',
     '&:hover': {
       color: '#6C2C86',
       backgroundColor: '#fcda87',
-      border: '5px solid #FAB510',
     },
   },
   bubbleMobile: {
-    margin: '20px',
-    backgroundColor: '#FFF5C2',
-    marginTop: '20px',
     borderRadius: '50px',
     width: '680px',
     height: '250px',
@@ -144,11 +151,10 @@ const style = {
     justifyContent: 'center',
     alignItems: 'center',
     border: '5px solid #FAB510',
-    color: '#6C2C86',
+    textTransform: 'none',
     '&:hover': {
       color: '#6C2C86',
       backgroundColor: '#fcda87',
-      border: '5px solid #FAB510',
     },
   },
   bubbleTitleDesktop: {

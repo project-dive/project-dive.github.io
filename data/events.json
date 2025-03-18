@@ -2,22 +2,17 @@
     "events" : [
         {
             "name" : "Våffeldagen",
-            "date" : "2025-03-18",
+            "date" : "2025-03-25",
             "text" : "Kom och ät våfflor i META, Datatekniks egna sektionslokal! Våfflor, fika och dricka bjuds på och få möjligheten att träffa och lära känna andra tjejer på data! Peppra oss med frågor och funderingar eller kom helt enkelt bara och chilla och käka lite våfflor! :) Anmäl dig genom formuläret nedan! Vad väntar du på!!",
-            "link" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "link" : "https://ui.ungpd.com/Events/24a47591-e0b8-4341-8e1a-ac7a3bf201a0",
             "linkText" : "Våffeldagen"
-        },
-        {
-            "name" : "Midsommar",
-            "date" : "2024-06-25",
-            "text" : "placeholder text"
-        },
-        {
-            "name" : "Halloween",
-            "date" : "2025-10-30",
-            "text" : "placeholder text",
-            "link" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            "linkText" : "kul?"
+          },
+          {
+            "name" : "Öppet hus",
+            "date" : "2025-03-23",
+            "text" : "Är du nyfiken på hur det är att studera på KTH? På Öppet hus får du möjlighet att träffa studenter, lärare och studievägledare som kan svara på dina frågor om våra utbildningar och studentlivet.",
+            "link" : "https://www.kth.se/utbildning/traffa-kth/oppet-hus/valkommen-till-oppet-hus-pa-kth-campus-1.1121800",
+            "linkText" : "KTH - Öppet hus"
         }
     ]
 }

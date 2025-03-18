@@ -1,43 +1,45 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import ProjectDive from '../../public/assets/ProjectDive.svg?react';
+import {AppBar, Box, Button, Toolbar, Divider, Menu, MenuItem, ListItemIcon } from '@mui/material';
+import ProjectDive from '../assets/ProjectDive.svg?react';
 import { useEffect } from 'react';
-import Drawer from '@mui/material/Drawer';
 
 
 function MobileNavbar({ routes }) {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <>
-      <Drawer open={open} onClose={() => { setOpen(false) }} style={{ width: '50vw' }}>
-        <Box sx={{ width: '50vw', minWidth: '200px' }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#FFF5C2', height: '100vh' }}>
-            <Button key={'diveLogo'} sx={style.mobileLogo} color="inherit" href='/' onClick={() => setOpen(false)}>
-              <ProjectDive />
-              <>{routes[0].title}</>
-            </Button>
-            <Divider variant="middle" style={{ width: '80%' }} />
-            {routes.map((route, index) => {
-              if (route.path === "/") return;
-              return (
-                <>
-                  <Button key={index} color="inherit" sx={style.mobileButton}
-                    href={route.path}>{route.title}</Button>
-                  <Divider variant="middle" style={{ width: '80%' }} />
-                </>
-              )
-            })}
-          </Box>
-        </Box>
-      </Drawer>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        sx={{ width: '50vw', minWidth: '200px'}}
+      >
+        <MenuItem key={'diveLogo'} color="inherit" sx={style.mobileButton} component={"a"} href='/' onClick={handleClose}>
+          <ListItemIcon> <ProjectDive /> </ListItemIcon> {routes[0].title}
+        </MenuItem>
+        {routes.map((route, index) => {
+          if (route.path === "/") return;
+          return ([
+              <Divider variant="middle" style={{ width: '80%' }} />,
+              <MenuItem key={index} sx={style.mobileButton} component={"a"} href={"/#" + route.path} onClick={handleClose}>
+                {route.title}
+              </MenuItem>
+          ])
+        })}
+      </Menu>
       <AppBar position="static">
         <Toolbar sx={style.mobileNavbar}>
-          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={() => setOpen(true)}>
+          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={handleClick}>
             <ProjectDive />
             <>{routes[0].title}</>
           </Button>
@@ -57,8 +59,7 @@ function DesktopNavbar({ routes }) {
               {routes.map((route, index) => {
                 if (route.path === "/") return;
                 return (
-                  <Button key={index} color="inherit" sx={style.Button}
-                    href={route.path}>{route.title}</Button>
+                  <Button key={index} sx={style.Button} href={"/#" + route.path}>{route.title}</Button>
                 )
               })}
             </div>
@@ -83,7 +84,6 @@ export default function Navbar({ routes }) {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
-  console.log(isDesktop, window.innerWidth);
 
   return (
     <>
