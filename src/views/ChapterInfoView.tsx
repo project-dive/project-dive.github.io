@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Typography, Box, Button, Link } from "@mui/material";
+import MyPhoto from "../assets/meta.jpg";
 
 const ChapterInfoView: React.FC = () => {
   return (
@@ -33,10 +34,11 @@ const ChapterInfoView: React.FC = () => {
           SÖK HÄR!
         </Button>
       </Box>
-      
-      <div>
-      {/* feeeen biiild */}
+
+      <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif", lineHeight: "1.6" }}>
+      <img src={MyPhoto} alt="Beskrivande text" style={{ width: "60%", height: "auto" }} />
       </div>
+
 
       {/* Section 2 */}
       <Box sx={{ my: 4 }}>
