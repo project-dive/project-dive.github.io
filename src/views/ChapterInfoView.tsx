@@ -4,7 +4,7 @@ import { Container, Typography, Box, Button, Link } from "@mui/material";
 const ChapterInfoView: React.FC = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
-      <Typography variant="h3" component="h1" gutterBottom >
+      <Typography variant="h3" component="h1" gutterBottom sx={{fontWeight: 800}}>
         Datasektionen på KTH
       </Typography>
 
@@ -26,11 +26,15 @@ const ChapterInfoView: React.FC = () => {
           variant="contained" 
           color="primary"
           href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 1 }}
         >
           SÖK HÄR!
         </Button>
       </Box>
+      
+      <div>
+      {/* feeeen biiild */}
+      </div>
 
       {/* Section 2 */}
       <Box sx={{ my: 4 }}>
@@ -43,7 +47,7 @@ const ChapterInfoView: React.FC = () => {
           variant="contained" 
           color="primary"
           href="https://www.kth.se/utbildning/civilingenjor/datateknik/datateknik-civilingenjor-300-hp-1.4116"
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 1 }}
         >
           DATATEKNIK
         </Button>
