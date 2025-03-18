@@ -50,8 +50,8 @@ function MobileNavbar({ routes }) {
 function DesktopNavbar({ routes }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={style.appbar}>
-        <Toolbar sx={style.navbar}>
+      <AppBar position="static">
+        <Toolbar>
           <Button sx={style.logo} color="inherit" href="/">
             <ProjectDive />
             <>{routes[0].title}</>
@@ -94,45 +94,30 @@ export default function Navbar({ routes }) {
 }
 
 const style = {
-  navbar: {
-    flexGrow: 1,
-    color: '#6C2C86',
-    display: 'flex',
-    flexDirection: 'row',
-    alignContent: 'center',
-    position: 'relative',
-    justifyContent: 'space-between',
-  },
-  appbar: {
-    background: 'transparent',
-    boxShadow: 'none',
-  },
   Button: {
-    color: '#6C2C86',
     fontSize: '1.1em',
-    fontWeight: 'bold',
-    margin: '10px',
-    '&:hover': {
-      color: '#6C2C86',
-    },
+    fontWeight: 'bold',    
   },
   logo: {
-    marginRight: '10px',
-    alignSelf: 'start',
     fontSize: '1.1em',
     fontWeight: 'bold',
+    marginRight: '10px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    '&:hover': {
-      color: '#6C2C86',
-    },
+    minHeight: '164px',
   },
   middle: {
     position: 'absolute',
     left: '50%',
     transform: 'translateX(-50%)',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+    marginTop: '10px',
   },
   mobileNavbar: {
     display: 'flex',
@@ -159,5 +144,6 @@ const style = {
     flexDirection: 'column',
     alignItems: 'center',
     marginBottom: '20px',
+    minHeight: '164px',
   },
 }
