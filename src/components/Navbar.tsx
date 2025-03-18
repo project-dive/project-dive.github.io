@@ -53,13 +53,15 @@ function DesktopNavbar({ routes }) {
       <AppBar position="static">
         <Toolbar>
           <div style={style.middle}>
-            {routes.map((route, index) => {
-              if (route.path === "/") return;
-              return (
-                <Button key={index} color="inherit" sx={style.Button}
-                  href={route.path}>{route.title}</Button>
-              )
-            })}
+            <div style={style.middlemiddle}>
+              {routes.map((route, index) => {
+                if (route.path === "/") return;
+                return (
+                  <Button key={index} color="inherit" sx={style.Button}
+                    href={route.path}>{route.title}</Button>
+                )
+              })}
+            </div>
           </div>
           <Button sx={style.logo} color="inherit" href="/">
             <ProjectDive />
@@ -117,7 +119,15 @@ const style = {
     justifyContent: 'center',
     width: '100%',
     height: '100%',
-    marginTop: '10px',
+  },
+  middlemiddle: {
+    display: 'flex',
+    flexDirection: 'row',
+    height: '30%',
+    justifyContent: 'center',
+    backgroundColor: '#FFF5C2',
+    borderBottomLeftRadius: '20px',
+    borderBottomRightRadius: '20px',
   },
   mobileNavbar: {
     display: 'flex',

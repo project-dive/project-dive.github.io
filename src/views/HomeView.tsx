@@ -24,7 +24,6 @@ export default function Home() {
   return ( 
     <div style={style.container}>
       <div style={style.subcontainer}>
-        <img width={200} src='assets/borggarden.jpg'/>
         <Typography variant="h1">Datateknik på KTH</Typography>
         <p style={style.p}>
           Datasektionen på KTH är hem för alla datateknikstudenter. Här blandas studier med roliga event, hackathons, sittningar och en grym gemenskap. Vi fixar allt från episka fester till företagsevent där du kan nätverka och kanske säkra ditt framtida drömjobb. Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!

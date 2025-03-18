@@ -5,7 +5,7 @@ import About from "./views/AboutView";
 import ChapterInfo from "./views/ChapterInfoView";
 import GuestBook from "./views/GuestBookView";
 import Events from "./views/EventsView";
-// import FAQ from "./views/FAQView";
+import FAQ from "./views/FAQView";
 
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from '@mui/material/styles';
@@ -56,6 +56,7 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <BrowserRouter>
+        <img style={style.img} src='assets/borggardencrop.jpg'/>
         <Navbar routes={routes} />
         <Routes>
           {routes.map((route, index) => (
@@ -76,6 +77,23 @@ export default App
 
 import { ThemeOptions } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
+
+
+const style = {
+  img: {
+      width: '100%',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      // zIndex: '-1',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      // fade out the image gradually
+      /* Mask gradient */
+      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 30%)',
+      maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 30%)',
+    },
+}
 
 const Theme: ThemeOptions = createTheme({
   palette: {
@@ -131,6 +149,7 @@ const Theme: ThemeOptions = createTheme({
           background: "transparent",
           boxShadow: "none",
           minHeight: "20px",
+          zIndex: 100,
         },
       },
     },
