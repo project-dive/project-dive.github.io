@@ -49,7 +49,7 @@ function App() {
 
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <BrowserRouter>
         <Navbar routes={routes}/>
         <Routes>
