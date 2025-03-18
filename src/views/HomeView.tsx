@@ -33,7 +33,7 @@ export default function Home() {
   
   return ( 
     <div style={style.container}>
-      <div style={style.subcontainer}>
+      <div style={isDesktop? style.subcontainerDesktop : style.subcontainerMobile}>
         <h1>Datateknik på KTH</h1>
         <p style={style.p}>
           Datasektionen på KTH är hem för alla datateknikstudenter.  Här blandas studier med roliga event, hackathons, sittningar och en grym gemenskap. Vi fixar allt från episka fester till företagsevent där du kan nätverka och kanske säkra ditt framtida drömjobb. Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!
@@ -66,8 +66,12 @@ const style = {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  subcontainer: {
+  subcontainerDesktop: {
     width: '80%',
+    maxWidth: '1400px',
+  },
+  subcontainerMobile: {
+    width: '90%',
     maxWidth: '1400px',
   },
   p: {
@@ -93,8 +97,8 @@ const style = {
     backgroundColor: '#6C2C86',
     color: '#FFF5C2',
     borderRadius: '40px',
-    width: '300px',
-    height: '120px',
+    width: '320px',
+    height: '125px',
     fontSize: '2em',
     margin: '70px 0',
     '&:hover': {
@@ -132,7 +136,7 @@ const style = {
     backgroundColor: '#FFF5C2',
     marginTop: '20px',
     borderRadius: '50px',
-    width: '450px',
+    width: '680px',
     height: '250px',
     display: 'flex',
     flexDirection: 'column',
@@ -154,7 +158,7 @@ const style = {
     marginBottom: '20px',
   },
   bubbleTitleMobile: {
-    fontSize: '3em',
+    fontSize: '3.2em',
     fontWeight: '700',
     lineHeight: '1em',
     margin: '0 10px',
@@ -169,7 +173,7 @@ const style = {
   },
   bubbleDescriptionMobile: {
     textAlign: 'center',
-    fontSize: '1.5em',
+    fontSize: '2em',
     fontWeight: '600',
     lineHeight: '1.4em',
     margin: '0 10px',

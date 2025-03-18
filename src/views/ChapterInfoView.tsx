@@ -1,8 +1,19 @@
 import React from "react";
 import { Container, Typography, Box, Button, Link } from "@mui/material";
 import MyPhoto from "../assets/meta.jpg";
+import { useEffect } from 'react';
 
 const ChapterInfoView: React.FC = () => {
+  const breakpoint = 1000;
+  const [isDesktop, setDesktop] = React.useState(window.innerWidth > breakpoint);
+  const updateMedia = () => {
+      setDesktop(window.innerWidth > breakpoint);
+  };
+  useEffect(() => {
+      window.addEventListener("resize", updateMedia);
+      return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Typography variant="h3" component="h1" gutterBottom sx={{fontWeight: 800}}>
@@ -10,8 +21,8 @@ const ChapterInfoView: React.FC = () => {
       </Typography>
 
       {/* Section 1 */}
-      <Box sx={{ my: 4 }}>
-        <Typography variant="body1" sx={{ mb: 2, textAlign: "justify", color: "text.primary", fontSize: "1.2em", fontWeight: 600, lineHeight: 2.5 }}>
+      <Box sx={isDesktop ? style.sectionDesktop : style.sectionMobile}>
+        <Typography variant="body1" sx={isDesktop ? style.sectionTextDesktop : style.sectionTextMobile}>
           Är du intresserad av programmering, artificiell intelligens, cybersäkerhet eller framtidens 
           teknik? Då är Datateknik på KTH något för dig! Som student på programmet blir du en del av 
           Datasektionen, en engagerad och stödjande gemenskap som hjälper dig att utvecklas både 
@@ -29,8 +40,12 @@ const ChapterInfoView: React.FC = () => {
           variant="contained" 
           color="primary"
           href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
+<<<<<<< HEAD
           sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3}}
           style={{ color: "background" }}
+=======
+          sx={isDesktop ? style.sectionButtonDesktop : style.sectionButtonMobile}
+>>>>>>> 6b37900 (Mobile changes)
         >
           SÖK HÄR!
         </Button>
@@ -42,8 +57,8 @@ const ChapterInfoView: React.FC = () => {
 
 
       {/* Section 2 */}
-      <Box sx={{ my: 4 }}>
-        <Typography variant="body1" sx={{ mb: 2, textAlign: "justify", color: "text.primary", fontSize: "1.2em", fontWeight: 600, lineHeight: 2.5 }}>
+      <Box sx={isDesktop ? style.sectionDesktop : style.sectionMobile}>
+        <Typography variant="body1" sx={isDesktop ? style.sectionTextDesktop : style.sectionTextMobile}>
           Om just du känner dig lite taggad efter att ha fått veta lite mer om datateknik, leder länken
           här nedan till KTHs egna informationssida där du kan få en mer konkret överblick av
           vad programmet innebär samt viktiga datum att hålla koll på!
@@ -52,8 +67,7 @@ const ChapterInfoView: React.FC = () => {
           variant="contained" 
           color="primary"
           href="https://www.kth.se/utbildning/civilingenjor/datateknik/datateknik-civilingenjor-300-hp-1.4116"
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
-          style={{ color: "background" }}
+          sx={isDesktop ? style.sectionButtonDesktop : style.sectionButtonMobile}
         >
           DATATEKNIK
         </Button>
@@ -81,5 +95,53 @@ const ChapterInfoView: React.FC = () => {
     </Container>
   );
 };
+
+const style = {
+  sectionDesktop: {
+    my: 4
+  },
+  sectionMobile: {
+    my: 4,
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '10px',
+    margin: '10px',
+    maxWidth: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  sectionTextDesktop: {
+    mb: 2, 
+    textAlign: "justify",
+    color: "text.primary", 
+    fontSize: "1.2em", 
+    fontWeight: 600, 
+    lineHeight: 2.5,
+  },
+  sectionTextMobile: {
+    mb: 2, 
+    textAlign: "justify",
+    color: "text.primary", 
+    fontSize: "1.2em", 
+    fontWeight: 600, 
+    lineHeight: 1.6,
+  },
+  sectionButtonDesktop: {
+    borderRadius: "40px", 
+    width: 200, 
+    height: 80, 
+    fontSize: "1.5em", 
+    mt: 3,
+    color: "background"
+  },
+  sectionButtonMobile: {
+    borderRadius: "40px", 
+    width: 300, 
+    height: 120, 
+    fontSize: "1.5em", 
+    mt: 3,
+    color: "background"
+  }
+}
 
 export default ChapterInfoView;
