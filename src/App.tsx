@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import Home from './views/HomeView';
-import About from './views/AboutView';
-import ChapterInfo from './views/ChapterInfoView';
-import GuestBook from './views/GuestBookView';
-import Events from './views/EventsView';
+import Home from "./views/HomeView";
+import About from "./views/AboutView";
+import ChapterInfo from "./views/ChapterInfoView";
+import GuestBook from "./views/GuestBookView";
+import Events from "./views/EventsView";
 
 import Navbar from "./components/Navbar";
-import { ThemeProvider } from '@mui/material/styles';
-import './App.css';
+import { ThemeProvider } from "@mui/material/styles";
+import "./App.css";
 
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const routes = [
@@ -44,51 +44,60 @@ function App() {
       title: "Events",
       icon: "book",
     },
-  ]
-
+    {
+      component: FAQ,
+      path: "/faq",
+      title: "FAQ",
+      icon: "book",
+    },
+  ];
 
   return (
     <ThemeProvider theme={Theme}>
       <BrowserRouter>
-        <Navbar routes={routes}/>
+        <Navbar routes={routes} />
         <Routes>
           {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={<route.component/>}></Route>
+            <Route
+              key={index}
+              path={route.path}
+              element={<route.component />}
+            ></Route>
           ))}
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
-
+export default App;
 
 import { ThemeOptions } from "@mui/material";
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
+import FAQ from "./views/FAQView";
 
 const Theme: ThemeOptions = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
     primary: {
-      main: '#6d2c86',
+      main: "#6d2c86",
     },
     secondary: {
-      main: '#FABF36',
+      main: "#FABF36",
     },
     background: {
-      default: '#FFF5C2',
-      paper: '#ffffff',
+      default: "#FFF5C2",
+      paper: "#ffffff",
     },
     error: {
-      main: '#FF521B',
+      main: "#FF521B",
     },
     info: {
-      main: '#7C9EB2',
+      main: "#7C9EB2",
     },
   },
   typography: {
-    fontFamily: 'Figtree',
+    fontFamily: "Figtree",
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold: 800,
@@ -100,12 +109,37 @@ const Theme: ThemeOptions = createTheme({
         root: {
           border: 0,
           borderRadius: 3,
-          color: 'white',
+          color: '#6C2C86',
           height: 48,
-          padding: '0 30px',
+          padding: "0 30px",
+          '&:hover': {
+            color: '#6C2C86',
+          },
         },
       },
-    }
-  }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          background: "transparent",
+          boxShadow: "none",
+          minHeight: "20px",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          flexGrow: 1,
+              color: '#6C2C86',
+              display: 'flex',
+              flexDirection: 'row',
+              alignContent: 'center',
+              position: 'relative',
+              justifyContent: 'space-between',
+              minHeight: '20px',
+        },
+      },
+    },
+  },
 });
-
