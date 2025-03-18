@@ -29,19 +29,19 @@ function App() {
     {
       component: ChapterInfo,
       path: "/chapter",
-      title: "Chapter Info",
+      title: "Datasektionen",
       icon: "info",
     },
-    {
-      component: GuestBook,
-      path: "/guestbook",
-      title: "Guest Book",
-      icon: "book",
-    },
+    // {
+    //   component: GuestBook,
+    //   path: "/guestbook",
+    //   title: "Guest Book",
+    //   icon: "book",
+    // },
     {
       component: Events,
       path: "/events",
-      title: "Events",
+      title: "Event",
       icon: "book",
     },
     {
@@ -138,6 +138,14 @@ const Theme: ThemeOptions = createTheme({
               position: 'relative',
               justifyContent: 'space-between',
               minHeight: '20px',
+        },
+      },
+    },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#FFF5C2",
+          color: "#6d2c86",
         },
       },
     },
