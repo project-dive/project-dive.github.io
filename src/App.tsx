@@ -5,10 +5,11 @@ import About from "./views/AboutView";
 import ChapterInfo from "./views/ChapterInfoView";
 import GuestBook from "./views/GuestBookView";
 import Events from "./views/EventsView";
+import FAQ from "./views/FAQView";
 
 import Navbar from "./components/Navbar";
-import { ThemeProvider } from "@mui/material/styles";
-import "./App.css";
+import { ThemeProvider } from '@mui/material/styles';
+import './App.css';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -55,6 +56,7 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <BrowserRouter>
+        <img style={style.img} src='assets/borggardencrop.jpg'/>
         <Navbar routes={routes} />
         <Routes>
           {routes.map((route, index) => (
@@ -70,38 +72,61 @@ function App() {
   );
 }
 
-export default App;
+export default App
+
 
 import { ThemeOptions } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
-import FAQ from "./views/FAQView";
+import { createTheme } from '@mui/material/styles';
+
+
+const style = {
+  img: {
+      width: '100%',
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      // zIndex: '-1',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      // fade out the image gradually
+      /* Mask gradient */
+      WebkitMaskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 30%)',
+      maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 30%)',
+    },
+}
 
 const Theme: ThemeOptions = createTheme({
   palette: {
-    mode: "light",
+    mode: 'light',
     primary: {
-      main: "#6d2c86",
+      main: '#6d2c86',
     },
     secondary: {
-      main: "#FABF36",
+      main: '#FABF36',
     },
     background: {
-      default: "#FFF5C2",
-      paper: "#ffffff",
+      default: '#FFF5C2',
+      paper: '#ffffff',
     },
     error: {
-      main: "#FF521B",
+      main: '#FF521B',
     },
     info: {
-      main: "#7C9EB2",
+      main: '#7C9EB2',
     },
   },
   typography: {
-    fontFamily: "Figtree",
+    fontFamily: 'Figtree',
     fontWeightRegular: 500,
     fontWeightMedium: 600,
     fontWeightBold: 800,
     fontWeightLight: 400,
+    h1: {
+      fontSize: '4rem',
+      fontWeight: 800,
+      color: '#6D2C86'
+      
+    }
   },
   components: {
     MuiButton: {
@@ -124,6 +149,7 @@ const Theme: ThemeOptions = createTheme({
           background: "transparent",
           boxShadow: "none",
           minHeight: "20px",
+          zIndex: 100,
         },
       },
     },
