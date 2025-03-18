@@ -23,8 +23,7 @@ export default function EventItem({
   return (
     <div style={style.container}>
       <div style={style.titleContainer}>
-        <span style={style.date}>{date}</span>
-        <span style={style.title}> - {title}</span>
+        <span style={style.date}>{date}</span><span style={style.title}> - {title}</span>
       </div>
       <div style={style.infoText}>{text}</div>
       {link && (

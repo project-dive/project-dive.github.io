@@ -22,7 +22,7 @@ const ChapterInfoView: React.FC = () => {
 
       {/* Section 1 */}
       <Box sx={isDesktop ? style.sectionDesktop : style.sectionMobile}>
-        <Typography variant="body1" sx={isDesktop ? style.sectionTextDesktop : style.sectionTextMobile}>
+        <Typography sx={isDesktop ? style.sectionTextDesktop : style.sectionTextMobile}>
           Är du intresserad av programmering, artificiell intelligens, cybersäkerhet eller framtidens 
           teknik? Då är Datateknik på KTH något för dig! Som student på programmet blir du en del av 
           Datasektionen, en engagerad och stödjande gemenskap som hjälper dig att utvecklas både 
@@ -53,7 +53,7 @@ const ChapterInfoView: React.FC = () => {
 
       {/* Section 2 */}
       <Box sx={isDesktop ? style.sectionDesktop : style.sectionMobile}>
-        <Typography variant="body1" sx={isDesktop ? style.sectionTextDesktop : style.sectionTextMobile}>
+        <Typography sx={isDesktop ? style.sectionTextDesktop : style.sectionTextMobile}>
           Om just du känner dig lite taggad efter att ha fått veta lite mer om datateknik, leder länken
           här nedan till KTHs egna informationssida där du kan få en mer konkret överblick av
           vad programmet innebär samt viktiga datum att hålla koll på!
@@ -81,12 +81,7 @@ const ChapterInfoView: React.FC = () => {
         </Typography>
       </Box>
 
-      {/* Footer */}
-      <Box sx={{ mt: 4, borderTop: 1, borderColor: "divider", pt: 2 }}>
-        <Typography variant="body2" color="text.secondary" align="center">
-          &copy; {new Date().getFullYear()} Datasektionen, KTH Sverige
-        </Typography>
-      </Box>
+
     </Container>
   );
 };
@@ -104,22 +99,6 @@ const style = {
     maxWidth: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  sectionTextDesktop: {
-    mb: 2, 
-    textAlign: "justify",
-    color: "text.primary", 
-    fontSize: "1.2em", 
-    fontWeight: 600, 
-    lineHeight: 2.5,
-  },
-  sectionTextMobile: {
-    mb: 2, 
-    textAlign: "justify",
-    color: "text.primary", 
-    fontSize: "1.2em", 
-    fontWeight: 600, 
-    lineHeight: 1.6,
   },
   sectionButtonDesktop: {
     borderRadius: "40px", 
