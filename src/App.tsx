@@ -175,5 +175,19 @@ const Theme: ThemeOptions = createTheme({
         },
       },
     },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.3em",
+        },
+      },
+    },
+    MuiAccordionDetails: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.2em",
+        },
+      },
+    },
   },
 });
