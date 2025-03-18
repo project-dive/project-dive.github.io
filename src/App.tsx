@@ -134,12 +134,8 @@ const Theme: ThemeOptions = createTheme({
         root: {
           border: 0,
           borderRadius: 3,
-          color: '#6C2C86',
           height: 48,
           padding: "0 30px",
-          '&:hover': {
-            color: '#6C2C86',
-          },
         },
       },
     },
