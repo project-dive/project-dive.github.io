@@ -1,51 +1,82 @@
 import React from "react";
+import { Container, Typography, Box, Button, Link } from "@mui/material";
+import MyPhoto from "../assets/meta.jpg";
 
 const ChapterInfoView: React.FC = () => {
   return (
-    <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif", lineHeight: "1.6" }}>
-      <header>
-        <h1>Datasektionen på KTH</h1>
-        <p>Välkommen till vår informationssida för datasektionen.</p>
-      </header>
+    <Container maxWidth="md" sx={{ py: 4 }}>
+      <Typography variant="h3" component="h1" gutterBottom sx={{fontWeight: 800}}>
+        Datasektionen på KTH
+      </Typography>
 
-      <section>
-        <h2>Om oss</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vestibulum
-          auctor est. Nam vitae finibus ante. Integer tincidunt, quam nec aliquet luctus,
-          mi nisi dictum odio, id convallis mi eros quis mi.
-        </p>
-      </section>
+      {/* Section 1 */}
+      <Box sx={{ my: 4 }}>
+        <Typography variant="body1" sx={{ mb: 2, textAlign: "justify", color: "text.primary", fontSize: "1.2em", fontWeight: 600, lineHeight: 2.5 }}>
+          Är du intresserad av programmering, artificiell intelligens, cybersäkerhet eller framtidens 
+          teknik? Då är Datateknik på KTH något för dig! Som student på programmet blir du en del av 
+          Datasektionen, en engagerad och stödjande gemenskap som hjälper dig att utvecklas både 
+          akademiskt och socialt.
+          <br /><br />
+          På Datasektionen finns studienämnder som ser till att din utbildning håller hög kvalitet,
+          mentorskapsprogram för nya studenter och massor av resurser för att hjälpa dig att lyckas.
+          Datasektionen har 20 aktiva nämnder och ytterligare projekt med engagerade studenter.
+          Oavsett om du behöver stöd i en kurs eller vill hitta ett nätverk av likasinnade, finns alltid
+          någon att vända sig till.
 
-      <section>
-        <h2>Vårt syfte</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tincidunt, tortor
-          eget ultrices pharetra, urna sapien faucibus leo, sit amet auctor sapien ligula nec
-          dui.
-        </p>
-      </section>
+          Så om just du är taggad på att söka datateknik så är anmälan redan öppen nu från 17 mars!
+        </Typography>
+        <Button 
+          variant="contained" 
+          color="primary"
+          href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
+        >
+          SÖK HÄR!
+        </Button>
+      </Box>
 
-      <section>
-        <h2>Event</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
-      </section>
+      <div style={{ padding: "2rem", fontFamily: "Arial, sans-serif", lineHeight: "1.6" }}>
+      <img src={MyPhoto} alt="Beskrivande text" style={{ width: "60%", height: "auto" }} />
+      </div>
 
-      <section>
-        <h2>Kontakt</h2>
-        <p>
+
+      {/* Section 2 */}
+      <Box sx={{ my: 4 }}>
+        <Typography variant="body1" sx={{ mb: 2, textAlign: "justify", color: "text.primary", fontSize: "1.2em", fontWeight: 600, lineHeight: 2.5 }}>
+          Om just du känner dig lite taggad efter att ha fått veta lite mer om datateknik, leder länken
+          här nedan till KTHs egna informationssida där du kan få en mer konkret överblick av
+          vad programmet innebär samt viktiga datum att hålla koll på!
+        </Typography>
+        <Button 
+          variant="contained" 
+          color="primary"
+          href="https://www.kth.se/utbildning/civilingenjor/datateknik/datateknik-civilingenjor-300-hp-1.4116"
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
+        >
+          DATATEKNIK
+        </Button>
+      </Box>
+
+      {/* Kontakt Section */}
+      <Box sx={{ my: 10 }}>
+        <Typography variant="h5" component="h2" gutterBottom>
+          Kontakt
+        </Typography>
+        <Typography variant="body1">
           För mer information, vänligen kontakta oss via e-post:{" "}
-          <a href="mailto:info@datasektionen.se">info@datasektionen.se</a>.
-        </p>
-      </section>
+          <Link href="mailto:dive@datasektionen.se" color="secondary">
+            dive@datasektionen.se
+          </Link>.
+        </Typography>
+      </Box>
 
-      <footer style={{ marginTop: "2rem", borderTop: "1px solid #ccc", paddingTop: "1rem" }}>
-        <p>&copy; {new Date().getFullYear()} Datasektionen, KTH Sverige</p>
-      </footer>
-    </div>
+      {/* Footer */}
+      <Box sx={{ mt: 4, borderTop: 1, borderColor: "divider", pt: 2 }}>
+        <Typography variant="body2" color="text.secondary" align="center">
+          &copy; {new Date().getFullYear()} Datasektionen, KTH Sverige
+        </Typography>
+      </Box>
+    </Container>
   );
 };
 
