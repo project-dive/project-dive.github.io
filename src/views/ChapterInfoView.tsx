@@ -29,7 +29,8 @@ const ChapterInfoView: React.FC = () => {
           variant="contained" 
           color="primary"
           href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3}}
+          style={{ color: "background" }}
         >
           SÖK HÄR!
         </Button>
@@ -52,6 +53,7 @@ const ChapterInfoView: React.FC = () => {
           color="primary"
           href="https://www.kth.se/utbildning/civilingenjor/datateknik/datateknik-civilingenjor-300-hp-1.4116"
           sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
+          style={{ color: "background" }}
         >
           DATATEKNIK
         </Button>
