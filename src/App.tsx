@@ -5,7 +5,7 @@ import About from "./views/AboutView";
 import ChapterInfo from "./views/ChapterInfoView";
 import GuestBook from "./views/GuestBookView";
 import Events from "./views/EventsView";
-import FAQ from "./views/FAQView";
+// import FAQ from "./views/FAQView";
 
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from '@mui/material/styles';
