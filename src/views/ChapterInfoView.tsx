@@ -21,12 +21,14 @@ const ChapterInfoView: React.FC = () => {
           Datasektionen har 20 aktiva nämnder och ytterligare projekt med engagerade studenter.
           Oavsett om du behöver stöd i en kurs eller vill hitta ett nätverk av likasinnade, finns alltid
           någon att vända sig till.
+
+          Så om just du är taggad på att söka datateknik så är anmälan redan öppen nu från 17 mars!
         </Typography>
         <Button 
           variant="contained" 
           color="primary"
           href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 1 }}
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
         >
           SÖK HÄR!
         </Button>
@@ -41,20 +43,20 @@ const ChapterInfoView: React.FC = () => {
         <Typography variant="body1" sx={{ mb: 2, textAlign: "justify", color: "text.primary", fontSize: "1.2em", fontWeight: 600, lineHeight: 2.5 }}>
           Om just du känner dig lite taggad efter att ha fått veta lite mer om datateknik, leder länken
           här nedan till KTHs egna informationssida där du kan få en mer konkret överblick av
-          vad programmet innebär.
+          vad programmet innebär samt viktiga datum att hålla koll på!
         </Typography>
         <Button 
           variant="contained" 
           color="primary"
           href="https://www.kth.se/utbildning/civilingenjor/datateknik/datateknik-civilingenjor-300-hp-1.4116"
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 1 }}
+          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3 }}
         >
           DATATEKNIK
         </Button>
       </Box>
 
       {/* Kontakt Section */}
-      <Box sx={{ my: 4 }}>
+      <Box sx={{ my: 10 }}>
         <Typography variant="h5" component="h2" gutterBottom>
           Kontakt
         </Typography>
