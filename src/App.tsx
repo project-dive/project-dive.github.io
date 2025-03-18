@@ -141,5 +141,13 @@ const Theme: ThemeOptions = createTheme({
         },
       },
     },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#FFF5C2",
+          color: "#6d2c86",
+        },
+      },
+    },
   },
 });
