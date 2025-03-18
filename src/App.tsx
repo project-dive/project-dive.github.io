@@ -4,6 +4,7 @@ import Home from './views/HomeView';
 import About from './views/AboutView';
 import ChapterInfo from './views/ChapterInfoView';
 import GuestBook from './views/GuestBookView';
+import Events from './views/EventsView';
 
 import Navbar from "./components/Navbar";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -35,6 +36,12 @@ function App() {
       component: GuestBook,
       path: "/guestbook",
       title: "Guest Book",
+      icon: "book",
+    },
+    {
+      component: Events,
+      path: "/events",
+      title: "Events",
       icon: "book",
     },
   ]
