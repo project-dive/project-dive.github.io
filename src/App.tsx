@@ -4,9 +4,10 @@ import Home from './views/HomeView';
 import About from './views/AboutView';
 import ChapterInfo from './views/ChapterInfoView';
 import GuestBook from './views/GuestBookView';
+import Events from './views/EventsView';
 
 import Navbar from "./components/Navbar";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import './App.css';
 
 import { BrowserRouter, Route, Routes} from "react-router-dom";
@@ -37,11 +38,17 @@ function App() {
       title: "Guest Book",
       icon: "book",
     },
+    {
+      component: Events,
+      path: "/events",
+      title: "Events",
+      icon: "book",
+    },
   ]
 
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={Theme}>
       <BrowserRouter>
         <Navbar routes={routes}/>
         <Routes>
@@ -57,7 +64,10 @@ function App() {
 export default App
 
 
-const theme = createTheme({
+import { ThemeOptions } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
+
+const Theme: ThemeOptions = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -84,4 +94,18 @@ const theme = createTheme({
     fontWeightBold: 800,
     fontWeightLight: 400,
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          border: 0,
+          borderRadius: 3,
+          color: 'white',
+          height: 48,
+          padding: '0 30px',
+        },
+      },
+    }
+  }
 });
+

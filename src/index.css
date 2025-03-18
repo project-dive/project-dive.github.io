@@ -27,12 +27,14 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Figtree';
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
   color: #6D2C86;
+  font-weight: black;
 }
 
 button {
