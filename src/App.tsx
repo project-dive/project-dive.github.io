@@ -93,7 +93,13 @@ const Theme: ThemeOptions = createTheme({
     fontWeightMedium: 600,
     fontWeightBold: 800,
     fontWeightLight: 400,
-  },
+    h1: {
+      fontSize: '4rem',
+      fontWeight: 800,
+      color: '#6D2C86'
+      
+      }
+    },
   components: {
     MuiButton: {
       styleOverrides: {

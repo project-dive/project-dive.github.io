@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
-import ProjectDive from '../assets/ProjectDive.svg?react';
+import ProjectDive from '../../public/assets/ProjectDive.svg?react';
 import { useEffect } from 'react';
 import Drawer from '@mui/material/Drawer';
 
