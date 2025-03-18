@@ -35,7 +35,7 @@ function MobileNavbar({ routes }) {
           </Box>
         </Box>
       </Drawer>
-      <AppBar position="static" sx={style.appbar}>
+      <AppBar position="static">
         <Toolbar sx={style.mobileNavbar}>
           <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={() => setOpen(true)}>
             <ProjectDive />
