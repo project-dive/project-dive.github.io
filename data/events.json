@@ -1,0 +1,23 @@
+{
+    "events" : [
+        {
+            "name" : "Våffeldagen",
+            "date" : "2025-03-18",
+            "text" : "Kom och ät våfflor i META, Datatekniks egna sektionslokal! Våfflor, fika och dricka bjuds på och få möjligheten att träffa och lära känna andra tjejer på data! Peppra oss med frågor och funderingar eller kom helt enkelt bara och chilla och käka lite våfflor! :) Anmäl dig genom formuläret nedan! Vad väntar du på!!",
+            "link" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "linkText" : "Våffeldagen"
+        },
+        {
+            "name" : "Midsommar",
+            "date" : "2024-06-25",
+            "text" : "placeholder text"
+        },
+        {
+            "name" : "Halloween",
+            "date" : "2025-10-30",
+            "text" : "placeholder text",
+            "link" : "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "linkText" : "kul?"
+        }
+    ]
+}
