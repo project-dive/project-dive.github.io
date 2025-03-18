@@ -33,12 +33,12 @@ function App() {
       title: "Chapter Info",
       icon: "info",
     },
-    {
-      component: GuestBook,
-      path: "/guestbook",
-      title: "Guest Book",
-      icon: "book",
-    },
+    // {
+    //   component: GuestBook,
+    //   path: "/guestbook",
+    //   title: "Guest Book",
+    //   icon: "book",
+    // },
     {
       component: Events,
       path: "/events",

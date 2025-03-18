@@ -52,10 +52,6 @@ function DesktopNavbar({ routes }) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Button sx={style.logo} color="inherit" href="/">
-            <ProjectDive />
-            <>{routes[0].title}</>
-          </Button>
           <div style={style.middle}>
             {routes.map((route, index) => {
               if (route.path === "/") return;
@@ -65,6 +61,10 @@ function DesktopNavbar({ routes }) {
               )
             })}
           </div>
+          <Button sx={style.logo} color="inherit" href="/">
+            <ProjectDive />
+            <>{routes[0].title}</>
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
