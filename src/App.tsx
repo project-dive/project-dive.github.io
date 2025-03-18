@@ -1,16 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import Home from './views/HomeView';
-import About from './views/AboutView';
-import ChapterInfo from './views/ChapterInfoView';
-import GuestBook from './views/GuestBookView';
-import Events from './views/EventsView';
+import Home from "./views/HomeView";
+import About from "./views/AboutView";
+import ChapterInfo from "./views/ChapterInfoView";
+import GuestBook from "./views/GuestBookView";
+import Events from "./views/EventsView";
+import FAQ from "./views/FAQView";
 
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from '@mui/material/styles';
 import './App.css';
 
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const routes = [
@@ -44,21 +45,30 @@ function App() {
       title: "Events",
       icon: "book",
     },
-  ]
-
+    {
+      component: FAQ,
+      path: "/faq",
+      title: "FAQ",
+      icon: "book",
+    },
+  ];
 
   return (
     <ThemeProvider theme={Theme}>
       <BrowserRouter>
-        <Navbar routes={routes}/>
+        <Navbar routes={routes} />
         <Routes>
           {routes.map((route, index) => (
-            <Route key={index} path={route.path} element={<route.component/>}></Route>
+            <Route
+              key={index}
+              path={route.path}
+              element={<route.component />}
+            ></Route>
           ))}
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
-  )
+  );
 }
 
 export default App
@@ -98,20 +108,45 @@ const Theme: ThemeOptions = createTheme({
       fontWeight: 800,
       color: '#6D2C86'
       
-      }
-    },
+    }
+  },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           border: 0,
           borderRadius: 3,
-          color: 'white',
+          color: '#6C2C86',
           height: 48,
-          padding: '0 30px',
+          padding: "0 30px",
+          '&:hover': {
+            color: '#6C2C86',
+          },
         },
       },
-    }
-  }
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          background: "transparent",
+          boxShadow: "none",
+          minHeight: "20px",
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          flexGrow: 1,
+              color: '#6C2C86',
+              display: 'flex',
+              flexDirection: 'row',
+              alignContent: 'center',
+              position: 'relative',
+              justifyContent: 'space-between',
+              minHeight: '20px',
+        },
+      },
+    },
+  },
 });
-
