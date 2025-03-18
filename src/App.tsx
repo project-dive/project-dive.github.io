@@ -3,7 +3,7 @@ import React from "react";
 import Home from "./views/HomeView";
 import About from "./views/AboutView";
 import ChapterInfo from "./views/ChapterInfoView";
-import GuestBook from "./views/GuestBookView";
+// import GuestBook from "./views/GuestBookView";
 import Events from "./views/EventsView";
 
 import Navbar from "./components/Navbar";
@@ -21,20 +21,14 @@ function App() {
       icon: "home",
     },
     {
-      component: About,
-      path: "/about",
-      title: "Om oss",
-      icon: "info",
-    },
-    {
       component: ChapterInfo,
       path: "/chapter",
       title: "Datasektionen",
       icon: "info",
     },
     // {
-    //   component: GuestBook,
-    //   path: "/guestbook",
+      //   component: GuestBook,
+      //   path: "/guestbook",
     //   title: "Guest Book",
     //   icon: "book",
     // },
@@ -49,6 +43,12 @@ function App() {
       path: "/faq",
       title: "FAQ",
       icon: "book",
+    },
+    {
+      component: About,
+      path: "/about",
+      title: "Om oss",
+      icon: "info",
     },
   ];
 

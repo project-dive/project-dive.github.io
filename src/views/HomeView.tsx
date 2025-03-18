@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import Typography from '@mui/material/Typography';
 import React from "react";
 import { useEffect } from 'react';
 
@@ -34,10 +35,10 @@ export default function Home() {
   return ( 
     <div style={style.container}>
       <div style={style.subcontainer}>
-        <h1>Datateknik på KTH</h1>
-        <p style={style.p}>
+        <Typography variant='h1'>Datateknik på KTH</Typography>
+        <Typography>
           Datasektionen på KTH är hem för alla datateknikstudenter.  Här blandas studier med roliga event, hackathons, sittningar och en grym gemenskap. Vi fixar allt från episka fester till företagsevent där du kan nätverka och kanske säkra ditt framtida drömjobb. Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!
-          </p>
+          </Typography>
       </div>
       <Button sx={isDesktop? style.buttonDesktop: style.buttonMobile} href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH">SÖK HÄR!</Button>
       <div style={style.bubbles}>
@@ -69,13 +70,6 @@ const style = {
   subcontainer: {
     width: '80%',
     maxWidth: '1400px',
-  },
-  p: {
-    textAlign: 'start',
-    color: '#425466',
-    fontSize: '1.2em',
-    fontWeight: '600',
-    lineHeight: '2.5em',
   },
   buttonDesktop: {
     backgroundColor: '#6C2C86',
