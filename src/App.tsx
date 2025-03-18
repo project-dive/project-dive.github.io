@@ -45,12 +45,12 @@ function App() {
       title: "Event",
       icon: "book",
     },
-    // {
-    //   component: FAQ,
-    //   path: "/faq",
-    //   title: "FAQ",
-    //   icon: "book",
-    // },
+    {
+      component: FAQ,
+      path: "/faq",
+      title: "FAQ",
+      icon: "book",
+    },
   ];
 
   return (
