@@ -40,12 +40,7 @@ const ChapterInfoView: React.FC = () => {
           variant="contained" 
           color="primary"
           href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
-<<<<<<< HEAD
-          sx={{ borderRadius: "40px", width: 200, height: 80, fontSize: "1.5em", mt: 3}}
-          style={{ color: "background" }}
-=======
           sx={isDesktop ? style.sectionButtonDesktop : style.sectionButtonMobile}
->>>>>>> 6b37900 (Mobile changes)
         >
           SÖK HÄR!
         </Button>
