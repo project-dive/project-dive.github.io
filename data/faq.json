@@ -5,6 +5,10 @@
             "answer": "Datateknikprogrammet är en civilingenjörsutbildning som fokuserar på datorer, programvara, systemutveckling och digital teknik. Här får du en bred teoretisk och praktisk förståelse för hur teknik och data påverkar vårt samhälle. Du kommer att lära dig att lösa tekniska problem, utveckla mjukvara, arbeta med algoritmer och förstå avancerade datorsystem."
         },
         {
+            "question": "Måste jag kunna programmera?",
+            "answer": "Nej! Utbildningen är uppbyggd så att du inte behöver ha någon tidigare erfarenhet av programmering. Du kommer att lära dig allt du behöver veta under utbildningens gång. Visst, det kan vara en fördel att ha lite erfarenhet men det är absolut inget krav. De flesta som börjar på programmet har aldrig programmerat tidigare."
+        },
+        {
             "question": "Vilka kurser läser man på Datateknikprogrammet?",
             "answer": "Under de första åren får du en solid grund i matematik och programmering. Senare i programmet kan du läsa mer specialiserade kurser som artificiell intelligens, datasäkerhet, maskininlärning, systemutveckling, nätverkskommunikation och databashantering. Programmet erbjuder också möjlighet att välja kurser inom olika områden för att anpassa utbildningen efter dina intressen."
         },
