@@ -23,7 +23,8 @@ export default function EventItem({
   return (
     <div style={style.container}>
       <div style={style.titleContainer}>
-        <span style={style.date}>{date}</span><span style={style.title}> - {title}</span>
+        <span style={style.date}>{date}</span>
+        <span style={style.title}> - {title}</span>
       </div>
       <div style={style.infoText}>{text}</div>
       {link && (
@@ -45,7 +46,6 @@ const style = {
     backgroundColor: "#F7EDBE",
     outline: "5px solid #FAB510",
     borderRadius: "2rem",
-
   },
   titleContainer: {
     display: "flex",
@@ -65,6 +65,6 @@ const style = {
   infoText: {
     textAlign: "left",
     fontSize: "large",
-    margin: "10px 0"
-  }
+    margin: "10px 0",
+  },
 };
