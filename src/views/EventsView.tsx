@@ -1,8 +1,8 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid2";
-import EventItem from "../components/eventsViewComponents/EventItem";
-import eventsList from "../../data/events.json";
+import EventItem from "components/eventsViewComponents/EventItem";
+import eventsList from "data/events.json";
 
 export default function Events() {
   const sortByDate = (eventA, eventB) => {

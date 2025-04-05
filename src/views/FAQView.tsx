@@ -5,7 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import data from "../../data/faq.json";
+import data from "data/faq.json";
 
 export default function FAQ() {
   const questions = data.questions;

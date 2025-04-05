@@ -1,7 +1,6 @@
+import { AppBar, Box, Button, Divider, ListItemIcon, Menu, MenuItem, Toolbar } from '@mui/material';
 import * as React from 'react';
-import {AppBar, Box, Button, Toolbar, Divider, Menu, MenuItem, ListItemIcon } from '@mui/material';
-import ProjectDive from '../assets/ProjectDive.svg?react';
-import { useEffect } from 'react';
+import ProjectDive from 'assets/ProjectDive.svg?react';
 
 
 function MobileNavbar({ routes }) {
@@ -37,7 +36,7 @@ function MobileNavbar({ routes }) {
           ])
         })}
       </Menu>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar sx={style.mobileNavbar}>
           <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={handleClick}>
             <ProjectDive />
@@ -52,7 +51,7 @@ function MobileNavbar({ routes }) {
 function DesktopNavbar({ routes }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <div style={style.middle}>
             <div style={style.middlemiddle}>
@@ -80,17 +79,14 @@ export default function Navbar({ routes }) {
   const updateMedia = () => {
     setDesktop(window.innerWidth > breakpoint);
   };
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
 
   return (
     <>
-      {
-        isDesktop ? <DesktopNavbar routes={routes} /> : <MobileNavbar routes={routes} />
-      }
-
+      { isDesktop ? <DesktopNavbar routes={routes} /> : <MobileNavbar routes={routes} /> }
     </>
   );
 }

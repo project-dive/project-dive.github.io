@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Typography, Box, Button, Link } from "@mui/material";
-import MyPhoto from "../assets/meta.jpg";
+import MyPhoto from "assets/meta.jpg";
 import { useEffect } from 'react';
 
 const ChapterInfoView: React.FC = () => {

@@ -4,7 +4,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-    // root: '.',
+    root: './',
     base: '/',
     plugins: [
         react(),
@@ -13,4 +13,14 @@ export default defineConfig({
     server: {
         port: 3000,
     },
+    resolve: {
+        alias: {
+            assets: "/src/assets/",
+            data: "/data/",
+            components: "/src/components/",
+            utils: "/src/utils/",
+            views: "/src/views/",
+        },
+      },
+    
 })

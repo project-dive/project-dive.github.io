@@ -3,16 +3,18 @@
   width: 100%;
   min-height: 100vh;
   background-repeat: no-repeat;
-  background-image: linear-gradient(#fffceb, 10%, #FFF5C2); */
+  background-image: linear-gradient(#fffceb, 10%, #FFF5C2);
   position: 'relative';
+  
+  /* Color variables */
+  --lila: #6d2c86;
+  --light-yellow: #fff5c2;
+  --off-yellow: #fff0b0;
+  --mustard: #fabf36;
+  --link-blue: #067bc2;
+  --off-black: #3f300e;
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 .card {
   padding: 2em;
