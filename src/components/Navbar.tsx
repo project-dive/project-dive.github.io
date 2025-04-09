@@ -1,54 +1,51 @@
 import * as React from 'react';
-import {AppBar, Box, Button, Toolbar, Divider, Menu, MenuItem, ListItemIcon } from '@mui/material';
+import {AppBar, Box, Button, Toolbar, Divider, Menu, MenuItem, ListItemIcon, IconButton, ListItem, Drawer, List, Paper } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import ProjectDive from '../assets/ProjectDive.svg?react';
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
 
 function MobileNavbar({ routes }) {
-  // const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const [open, setOpen] = useState(false);
+  const handleToggle = () => {
+    setOpen(!open);
+  }
   const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+    setOpen(false)
+  }
+  
   return (
     <>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        sx={{ width: '50vw', minWidth: '200px'}}
-      >
-        <MenuItem key={'diveLogo'} color="inherit" sx={style.mobileButton} component={"a"} href='/' onClick={handleClose}>
-          <ListItemIcon> <ProjectDive /> </ListItemIcon> {routes[0].title}
-        </MenuItem>
-        {routes.map((route, index) => {
-          if (route.path === "/") return;
-          return ([
-              <Divider variant="middle" style={{ width: '80%' }} />,
-              <MenuItem key={index} sx={style.mobileButton} component={"a"} href={"/#" + route.path} onClick={handleClose}>
-                {route.title}
-              </MenuItem>
-          ])
-        })}
-      </Menu>
-      <AppBar position="static">
+      <AppBar position="static" sx={{background: open? '#FFF5C2': 'transparent'}}>
         <Toolbar sx={style.mobileNavbar}>
-          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={handleClick}>
+          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" href="/">
             <ProjectDive />
             <>{routes[0].title}</>
           </Button>
+          <IconButton edge="end" color="inherit" onClick={handleToggle} sx={style.mobileKebab}>
+            {open ? <CloseIcon sx={{fontSize:60}}/> : <MenuIcon sx={{fontSize:60}}/>}
+        </IconButton>
         </Toolbar>
       </AppBar>
+      {open && (
+        <Paper elevation={0} sx={style.mobileDropdown}>
+          {routes.map((route, index) => {
+          if (route.path === "/") return;
+          return ([
+              <MenuItem key={index} sx={style.mobileButton} component={"a"} href={"/#" + route.path} onClick={handleClose}>
+                {route.title}
+              </MenuItem>,
+              <Divider variant="middle" style={{ width: '80%' }} />
+          ])
+        })}
+        </Paper>
+      )}
+      
+      
+      
     </>
   )
 }
-
 function DesktopNavbar({ routes }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -100,16 +97,6 @@ const style = {
     fontSize: '1.1em',
     fontWeight: 'bold',    
   },
-  logo: {
-    fontSize: '1.1em',
-    fontWeight: 'bold',
-    marginRight: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '164px',
-  },
   middle: {
     position: 'absolute',
     left: '50%',
@@ -136,12 +123,22 @@ const style = {
   },
   mobileButton: {
     color: '#6C2C86',
-    fontSize: '2em',
+    fontSize: '3em',
     fontWeight: 'bold',
-    margin: '10px',
+    margin: '20px',
     '&:hover': {
       color: '#6C2C86',
     },
+  },
+  logo: {
+    fontSize: '1.1em',
+    fontWeight: 'bold',
+    marginRight: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '164px',
   },
   mobileLogo: {
     color: '#6C2C86',
@@ -155,6 +152,19 @@ const style = {
     alignItems: 'center',
     marginTop: '20px',
     marginBottom: '20px',
-    minHeight: '164px',
+    minHeight: '20vh',
   },
+  mobileDropdown: {
+    position: 'absolute',
+    zIndex: 1200,
+    width: '100vw',
+    height: '100vh',
+    paddingTop: '20px',
+    paddingLeft: '10px',
+    backgroundColor: '#FFF5C2',
+  },
+  mobileKebab: {
+    marginLeft: 'auto', 
+    marginRight: 2, '&:focus':{outline:'none'}
+  }
 }
