@@ -24,7 +24,7 @@ export default function FAQ() {
 
   return (
     <div style={style.container}>
-      <div style={style.subcontainer}>
+      <div style={isDesktop? style.subcontainerDesktop: style.subcontainerMobile}>
         <h1
           style={{
             textAlign: "center",
@@ -68,8 +68,12 @@ const style = {
     textAlign: "start",
     color: "#6d2c86",
   },
-  subcontainer: {
+  subcontainerMobile: {
     width: "90%",
+    maxWidth: "1400px",
+  },
+  subcontainerDesktop: {
+    width: "70%",
     maxWidth: "1400px",
   },
   accordion: {
