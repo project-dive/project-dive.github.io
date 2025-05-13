@@ -121,9 +121,11 @@ const style = {
     flexDirection: 'row',
     height: '30%',
     justifyContent: 'center',
-    backgroundColor: '#FFF5C2',
+    backgroundColor: '#fff5c2',
     borderBottomLeftRadius: '20px',
     borderBottomRightRadius: '20px',
+    border: 10,
+    borderColor: 'primary.main',
   },
   mobileNavbar: {
     display: 'flex',

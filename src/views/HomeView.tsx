@@ -48,7 +48,12 @@ export default function Home() {
           Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det 
           här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!
         </Typography>
-        <Button variant="contained" href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH">SÖK HÄR!</Button>
+        <Button 
+          variant="contained"
+          href="https://www.antagning.se/se/addtobasket?period=24&id=KTH-32102"
+        >
+          SÖK HÄR!
+        </Button>
         
         <Grid container direction="column" sx={{borderTop: 1, borderColor: "divider", pt: 3 }}>
           <Typography variant='h3'>I blickfånget</Typography>
