@@ -1,5 +1,5 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
+import { Button, Typography } from '@mui/material';
 import Grid from "@mui/material/Grid2";
 import EventItem from "components/eventsViewComponents/EventItem";
 import eventsList from "data/events.json";
@@ -8,7 +8,7 @@ export default function Events() {
   const sortByDate = (eventA, eventB) => {
     return eventA.date === eventB.date ? 0 : eventA.date < eventB.date ? -1 : 1;
   };
-  
+
   const events = eventsList["events"];
   events.sort(sortByDate);
 

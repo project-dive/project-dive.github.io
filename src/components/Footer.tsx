@@ -22,7 +22,8 @@ export default function Footer() {
             width: "100%",
             px: 20,
             py: 4,
-            bgcolor: 'primary.main'
+            bgcolor: 'primary.main',
+            marginTop: 5
           }}
         >
           <Grid size={6}>
