@@ -6,9 +6,13 @@ const Themes: ThemeOptions = createTheme({
     mode: 'light',
     primary: {
       main: '#6d2c86',
+      contrastText: '#ffffff',
     },
     secondary: {
       main: '#FABF36',
+    },
+    tertiary: {
+      main: '#FFF5C2',
     },
     background: {
       default: '#FFF5C2',
@@ -19,6 +23,11 @@ const Themes: ThemeOptions = createTheme({
     },
     info: {
       main: '#7C9EB2',
+    },
+    text: {
+      primary: '#3f300e',
+      secondary: '#FFF5C2',
+      disabled: 'rgba(63,48,14,0.38)',
     },
   },
   typography: {
