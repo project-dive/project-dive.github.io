@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Typography, Box, Button, Link } from "@mui/material";
-import MyPhoto from "../assets/meta.jpg";
+import MyPhoto from "assets/meta.jpg";
 import { useEffect } from 'react';
 
 const ChapterInfoView: React.FC = () => {
@@ -39,7 +39,7 @@ const ChapterInfoView: React.FC = () => {
         <Button 
           variant="contained" 
           color="primary"
-          href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH"
+          href="https://www.antagning.se/se/addtobasket?period=24&id=KTH-32102"
           sx={isDesktop ? style.sectionButtonDesktop : style.sectionButtonMobile}
         >
           SÖK HÄR!

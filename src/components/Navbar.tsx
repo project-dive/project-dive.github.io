@@ -1,58 +1,56 @@
+import { AppBar, Box, Button, Divider, ListItemIcon, Menu, MenuItem, Toolbar, IconButton, ListItem, Drawer, List, Paper } from '@mui/material';
 import * as React from 'react';
-import {AppBar, Box, Button, Toolbar, Divider, Menu, MenuItem, ListItemIcon } from '@mui/material';
-import ProjectDive from '../assets/ProjectDive.svg?react';
-import { useEffect } from 'react';
+import ProjectDive from 'assets/ProjectDive.svg?react';
 
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import { useEffect, useState } from 'react';
 
 function MobileNavbar({ routes }) {
-  // const [open, setOpen] = React.useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const [open, setOpen] = useState(false);
+  const handleToggle = () => {
+    setOpen(!open);
+  }
   const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+    setOpen(false)
+  }
+  
   return (
     <>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        sx={{ width: '50vw', minWidth: '200px'}}
-      >
-        <MenuItem key={'diveLogo'} color="inherit" sx={style.mobileButton} component={"a"} href='/' onClick={handleClose}>
-          <ListItemIcon> <ProjectDive /> </ListItemIcon> {routes[0].title}
-        </MenuItem>
-        {routes.map((route, index) => {
-          if (route.path === "/") return;
-          return ([
-              <Divider variant="middle" style={{ width: '80%' }} />,
-              <MenuItem key={index} sx={style.mobileButton} component={"a"} href={"/#" + route.path} onClick={handleClose}>
-                {route.title}
-              </MenuItem>
-          ])
-        })}
-      </Menu>
-      <AppBar position="static">
+      <AppBar position="static" sx={{background: open? '#FFF5C2': 'transparent'}}>
         <Toolbar sx={style.mobileNavbar}>
-          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" onClick={handleClick}>
+          <Button key={'bigboii'} sx={style.mobileLogo} color="inherit" href="/">
             <ProjectDive />
             <>{routes[0].title}</>
           </Button>
+          <IconButton edge="end" color="inherit" onClick={handleToggle} sx={style.mobileKebab}>
+            {open ? <CloseIcon sx={{fontSize:60}}/> : <MenuIcon sx={{fontSize:60}}/>}
+        </IconButton>
         </Toolbar>
       </AppBar>
+      {open && (
+        <Paper elevation={0} sx={style.mobileDropdown}>
+          {routes.map((route, index) => {
+          if (route.path === "/") return;
+          return ([
+              <MenuItem key={index} sx={style.mobileButton} component={"a"} href={"/#" + route.path} onClick={handleClose}>
+                {route.title}
+              </MenuItem>,
+              <Divider variant="middle" style={{ width: '80%' }} />
+          ])
+        })}
+        </Paper>
+      )}
+      
+      
+      
     </>
   )
 }
-
 function DesktopNavbar({ routes }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <div style={style.middle}>
             <div style={style.middlemiddle}>
@@ -80,17 +78,14 @@ export default function Navbar({ routes }) {
   const updateMedia = () => {
     setDesktop(window.innerWidth > breakpoint);
   };
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
 
   return (
     <>
-      {
-        isDesktop ? <DesktopNavbar routes={routes} /> : <MobileNavbar routes={routes} />
-      }
-
+      { isDesktop ? <DesktopNavbar routes={routes} /> : <MobileNavbar routes={routes} /> }
     </>
   );
 }
@@ -99,16 +94,6 @@ const style = {
   Button: {
     fontSize: '1.1em',
     fontWeight: 'bold',    
-  },
-  logo: {
-    fontSize: '1.1em',
-    fontWeight: 'bold',
-    marginRight: '10px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '164px',
   },
   middle: {
     position: 'absolute',
@@ -125,9 +110,11 @@ const style = {
     flexDirection: 'row',
     height: '30%',
     justifyContent: 'center',
-    backgroundColor: '#FFF5C2',
+    backgroundColor: '#fff5c2',
     borderBottomLeftRadius: '20px',
     borderBottomRightRadius: '20px',
+    border: 10,
+    borderColor: 'primary.main',
   },
   mobileNavbar: {
     display: 'flex',
@@ -136,12 +123,22 @@ const style = {
   },
   mobileButton: {
     color: '#6C2C86',
-    fontSize: '2em',
+    fontSize: '3em',
     fontWeight: 'bold',
-    margin: '10px',
+    margin: '20px',
     '&:hover': {
       color: '#6C2C86',
     },
+  },
+  logo: {
+    fontSize: '1.1em',
+    fontWeight: 'bold',
+    marginRight: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    minHeight: '164px',
   },
   mobileLogo: {
     color: '#6C2C86',
@@ -155,6 +152,19 @@ const style = {
     alignItems: 'center',
     marginTop: '20px',
     marginBottom: '20px',
-    minHeight: '164px',
+    minHeight: '20vh',
   },
+  mobileDropdown: {
+    position: 'absolute',
+    zIndex: 1200,
+    width: '100vw',
+    height: '100vh',
+    paddingTop: '20px',
+    paddingLeft: '10px',
+    backgroundColor: '#FFF5C2',
+  },
+  mobileKebab: {
+    marginLeft: 'auto', 
+    marginRight: 2, '&:focus':{outline:'none'}
+  }
 }

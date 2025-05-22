@@ -1,7 +1,9 @@
-import { Button, Typography, Divider } from "@mui/material";
+import { Button, Typography, Divider, Box } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import React from "react";
 import { useEffect } from 'react';
+import banner from "assets/borggardencrop.jpg";
+
 
 export default function Home() {
   const breakpoint = 1000;
@@ -36,7 +38,7 @@ export default function Home() {
         sx={{
           justifyContent: "flex-start",
           alignItems: "center",
-          width: "90%"
+          width: "80%"
         }}
       >
         <Typography variant='h1'>Datateknik på KTH</Typography>
@@ -46,7 +48,12 @@ export default function Home() {
           Sektionen drivs av studenter för studenter, så om du vill påverka din utbildning eller bara ha kul på sidan av plugget så är det 
           här rätt plats. Kort sagt: vi kodar, vi skojar, vi gör KTH lite roligare!
         </Typography>
-        <Button variant="contained" href="https://www.antagning.se/se/search?period=24&freeText=Civilingenj%C3%B6r+Datateknik+KTH">SÖK HÄR!</Button>
+        <Button 
+          variant="contained"
+          href="https://www.antagning.se/se/addtobasket?period=24&id=KTH-32102"
+        >
+          SÖK HÄR!
+        </Button>
         
         <Grid container direction="column" sx={{borderTop: 1, borderColor: "divider", pt: 3 }}>
           <Typography variant='h3'>I blickfånget</Typography>
@@ -82,8 +89,7 @@ const style = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    padding: '20px',
-    margin: '20px',
+    padding: '5vh',
     maxWidth: '100%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -184,5 +190,18 @@ const style = {
     fontWeight: '600',
     lineHeight: '1.4em',
     margin: '0 10px',
+  },
+  
+  imgBox: {
+    width: '100%',
+    height: '25%',
+    // position: 'absolute',    
+    top: '0',
+    left: '0',
+    // zIndex: '0',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    overflow: "hidden",
+    maskImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%)',
   },
 };
