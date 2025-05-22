@@ -8,7 +8,7 @@ export default function Events() {
   const sortByDate = (eventA, eventB) => {
     return eventA.date === eventB.date ? 0 : eventA.date < eventB.date ? -1 : 1;
   };
-e
+  
   const events = eventsList["events"];
   events.sort(sortByDate);
 
