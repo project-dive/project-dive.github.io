@@ -2,7 +2,7 @@
 
 Välkommen till ~Datateknik~ Dive !
 
-# React + Vite
+# React + Vite + Shadcn + PNPM
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
