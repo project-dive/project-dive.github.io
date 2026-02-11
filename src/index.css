@@ -62,7 +62,7 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  place-items: center; /* NOTE: Center content vertically, kommer inte påverka om hela sidan fyller viewport ändå */
   min-width: 320px;
   min-height: 100vh;
 }
