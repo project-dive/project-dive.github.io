@@ -4,6 +4,7 @@ import Navigation from './components/Navigation'
 import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Faq from './pages/Faq'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/faq" element={<Faq/>} />
           <Route path="*" element={<NotFound />} /> {/* Catch-all, måste va sist */}
         </Routes>
       </main>
