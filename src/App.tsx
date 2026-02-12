@@ -10,7 +10,7 @@ function App() {
   return (
     <div>
       <Navigation />
-      <main className="pt-20">
+      <main className="pt-20 w-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
