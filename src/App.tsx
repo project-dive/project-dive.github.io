@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import QuestionBox from './pages/QuestionBox'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/questions" element={<QuestionBox />} />
           <Route path="*" element={<NotFound />} /> {/* Catch-all, måste va sist */}
         </Routes>
       </main>
