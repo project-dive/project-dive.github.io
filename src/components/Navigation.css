@@ -5,11 +5,11 @@
 }
 
 .nav-content {
-    @apply px-4 py-3;
+    @apply px-4;
 }
 
 .nav-flex {
-    @apply flex items-center justify-between;
+    @apply flex items-center;
 }
 
 .nav-brand {
@@ -29,5 +29,5 @@
 }
 
 .nav-button-base {
-    @apply text-gray-500 hover:text-black transition-colors;
+    @apply text-gray-500 hover:text-black transition-colors h-full;
 }
