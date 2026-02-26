@@ -47,6 +47,11 @@ function Faq() {
             >
                 Hittar du inte svar på dina frågor? Klicka här!
             </Button>
+            <div className="w-9/12 flex items-center">
+                <hr className="flex-grow"/>
+            </div>
+
+
                 <Accordion
                     type="multiple"
                     collapsible
