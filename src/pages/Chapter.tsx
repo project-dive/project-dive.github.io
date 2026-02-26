@@ -21,7 +21,13 @@ function Chapter() {
 
     return (
         <div className="flex w-full justify-center">
-            <div className="bg-white flex justify-center px-40">
+            <div className="bg-white flex flex-col justify-center px-40 rounded-xl"> {/* The carousel box*/}
+                <div className="w-full">
+                    <h1 className="text-4xl font-bold text-center my-10">Hitta din grej!</h1>
+                    <p className="text-center text-gray-600 mb-1"> Det finns massor att göra utanför plugget - om du vill</p>
+                    <p className="text-center text-gray-600 mb-1">Här är några av våra nämnder!</p>
+                </div>
+
                 <div className="bg-white my-20">
                     <Carousel className="w-md bg-white-200">
                         <CarouselContent>
