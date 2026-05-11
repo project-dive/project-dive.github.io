@@ -4,6 +4,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+  ButtonGroupText,
+} from "@/components/ui/button-group"
 
 import { Button } from '@/components/ui/button'
 import React, { useEffect, useState } from 'react';
@@ -20,7 +25,9 @@ interface StudentStory {
   text: string;
 }
 
-const categories: Category[] = ["Student", "Alumn", "Studier", "Studentliv"];
+const status_categories: Category[] = ["Student", "Alumn"];
+const content_categories: Category[] = ["Studier", "Studentliv"];
+
 
 const stories: StudentStory[] = [
   { id: 1, name: "Anna Andersson", status: "Student", category: "Studier", text:
@@ -40,18 +47,48 @@ function Stories() {
   const [selectedStory, setSelectedStory] = useState<StudentStory | null>(null);
 
   const toggleFilter = (filter: Category) => {
-    setActiveFilters((prev) =>
-      prev.includes(filter)
-        ? prev.filter((f) => f !== filter)
-        : [...prev, filter]
-    );
+    setActiveFilters((prev) => {
+      const isStatus = status_categories.includes(filter);
+      const isContent = content_categories.includes(filter);
+
+      if (isStatus) {
+        if (prev.includes(filter)) {
+          return prev.filter((f) => f !== filter);
+        }
+        const withoutStatus = prev.filter((f) => !status_categories.includes(f));
+        return [...withoutStatus, filter];
+      }
+
+      if (isContent) {
+        if (prev.includes(filter)) {
+          return prev.filter((f) => f !== filter);
+        }
+        const withoutContent = prev.filter((f) => !content_categories.includes(f));
+        return [...withoutContent, filter];
+      }
+
+      return prev.includes(filter) ? prev.filter((f) => f !== filter) : [...prev, filter];
+    });
   };
 
-  const filteredStories = activeFilters.length === 0
-    ? stories
-    : stories.filter(story =>
-        activeFilters.includes(story.status) || activeFilters.includes(story.category)
-      );
+  const statusFilters = activeFilters.filter((f) => status_categories.includes(f));
+  const contentFilters = activeFilters.filter((f) => content_categories.includes(f));
+
+  let filteredStories = stories;
+  if (statusFilters.length === 0 && contentFilters.length === 0) {
+    filteredStories = stories;
+  } else if (statusFilters.length > 0 && contentFilters.length > 0) {
+    // Both types selected -> require both to match
+    filteredStories = stories.filter(
+      (story) => statusFilters.includes(story.status) && contentFilters.includes(story.category)
+    );
+  } else if (statusFilters.length > 0) {
+    // Only status filters -> match any selected status
+    filteredStories = stories.filter((story) => statusFilters.includes(story.status));
+  } else {
+    // Only content filters -> match any selected category
+    filteredStories = stories.filter((story) => contentFilters.includes(story.category));
+  }
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -66,35 +103,61 @@ function Stories() {
       <h1 className="text-3xl font-bold mb-6">Studentberättelser</h1>
 
       {/* Filter-sektion */}
-      <div className="flex flex-wrap gap-2 mb-8" role="toolbar" aria-label="Filters">
-        <Button
-          variant={activeFilters.length === 0 ? "outline" : 'ghost'}
-          onClick={(e) => { setActiveFilters([]); (e.currentTarget as HTMLButtonElement).blur(); }}
-          aria-pressed={activeFilters.length === 0}
-          className={`${activeFilters.length === 0 ? 'shadow-lg ring-2 ring-primary/60' : 'ring-0'} focus-visible:ring-0 focus:ring-0 focus:outline-none active:ring-0`}
-        >
-          Visa alla
-        </Button>
+      <div className="flex flex-wrap gap-3 mb-8" role="toolbar" aria-label="Filters">
+        {/* Visa alla group */}
+        <div className="inline-flex rounded-md shadow-sm" role="group" aria-label="Visa alla group">
+          <Button
+            variant="ghost"
+            onClick={(e) => { setActiveFilters([]); (e.currentTarget as HTMLButtonElement).blur(); }}
+            aria-pressed={activeFilters.length === 0}
+            className={`${activeFilters.length === 0 ? 'ring-2 ring-offset-2 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 rounded-md`}
+          >
+            Visa alla
+          </Button>
+        </div>
 
+        {/* Student categories group */}
+        <ButtonGroup>
+          {status_categories.map((cat, idx) => {
+            const active = activeFilters.includes(cat);
+            const isFirst = idx === 0;
+            const isLast = idx === status_categories.length - 1;
+            return (
+              <Button
+                key={cat}
+                variant="ghost"
+                onClick={(e) => { toggleFilter(cat); (e.currentTarget as HTMLButtonElement).blur(); }}
+                className={`capitalize transform transition-all ${active ? 'ring-2 ring-offset-2 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 ${isFirst ? 'rounded-l-md' : ''} ${isLast ? 'rounded-r-md' : ''}`}
+                aria-pressed={active}
+                aria-label={`Filter ${cat}`}
+              >
+                {cat}
+              </Button>
+            )
+          })}
+        </ButtonGroup>
 
-         {/* focus-visible:ring-0 focus:ring-0 focus:outline-none active:ring-0 */}
-        {categories.map((cat) => {
-          const active = activeFilters.includes(cat);
-          return (
-            <Button
-              key={cat}
-              variant={active ? "outline" : "ghost"}
-              onClick={(e) => { toggleFilter(cat); (e.currentTarget as HTMLButtonElement).blur(); }}
-              className={`capitalize transform transition-all ${active ? ' shadow-lg ring-2 ring-primary/60' : 'ring-0'} `}
-              aria-pressed={active}
-              aria-label={`Filter ${cat}`}
-            >
-              {cat}
-            </Button>
-          )
-        })}
+        {/* Content categories group */}
+        <ButtonGroup>
+          {content_categories.map((cat, idx) => {
+            const active = activeFilters.includes(cat);
+            const isFirst = idx === 0;
+            const isLast = idx === content_categories.length - 1;
+            return (
+              <Button
+                key={cat}
+                variant="ghost"
+                onClick={(e) => { toggleFilter(cat); (e.currentTarget as HTMLButtonElement).blur(); }}
+                className={`capitalize transform transition-all ${active ? 'ring-2 ring-offset-2 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 ${isFirst ? 'rounded-l-md' : ''} ${isLast ? 'rounded-r-md' : ''}`}
+                aria-pressed={active}
+                aria-label={`Filter ${cat}`}
+              >
+                {cat}
+              </Button>
+            )
+          })}
+        </ButtonGroup>
       </div>
-
       {/* Grid med kort (preview) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredStories.map((story) => (
