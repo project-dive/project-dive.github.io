@@ -1,12 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "@fontsource/fredoka/400.css";
+@import "@fontsource/fredoka/700.css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Fredoka", system-ui, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 700;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -17,7 +19,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #FFE9FB;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -79,7 +81,6 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -105,6 +106,7 @@ button:focus-visible {
 }
 
 @theme inline {
+  --font-fredoka: "Fredoka", sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

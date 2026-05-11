@@ -3,6 +3,12 @@
 Välkommen till ~Datateknik~ Dive !
 
 # React/Vite/Tailwind/Shadcn/PNPM
+
+### Install dependencies
+MAC 
+brew install npm
+brew install pnpm
+
 ### How to run?
 Run the following command to update and install all dependencies:
 ```

@@ -7,9 +7,10 @@ import diveLogo from '../assets/dive.png'
 import './Navigation.css'
 
 const navItems = [
-    { path: '/', label: 'Sektionen' },
-    { path: '/about', label: 'Studier' },
-    { path: '/contact', label: 'FAQ' },
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/contact', label: 'Contact' },
+    { path: '/chapter', label: 'Chapter' },
 ]
 
 function Navigation() {
