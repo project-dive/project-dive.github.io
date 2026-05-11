@@ -105,19 +105,19 @@ function Stories() {
       {/* Filter-sektion */}
       <div className="flex flex-wrap gap-3 mb-8" role="toolbar" aria-label="Filters">
         {/* Visa alla group */}
-        <div className="inline-flex rounded-md shadow-sm" role="group" aria-label="Visa alla group">
+        <div className="inline-flex rounded-md" role="group" aria-label="Visa alla group">
           <Button
-            variant="ghost"
+            variant="outline"
             onClick={(e) => { setActiveFilters([]); (e.currentTarget as HTMLButtonElement).blur(); }}
             aria-pressed={activeFilters.length === 0}
-            className={`${activeFilters.length === 0 ? 'ring-2 ring-offset-2 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 rounded-md`}
+            className={`${activeFilters.length === 0 ? 'ring-2 ring-offset-0 ring-primary/60' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0`}
           >
             Visa alla
           </Button>
         </div>
 
         {/* Student categories group */}
-        <ButtonGroup>
+        <ButtonGroup className="gap-1">
           {status_categories.map((cat, idx) => {
             const active = activeFilters.includes(cat);
             const isFirst = idx === 0;
@@ -125,20 +125,18 @@ function Stories() {
             return (
               <Button
                 key={cat}
-                variant="ghost"
+                variant="outline"
                 onClick={(e) => { toggleFilter(cat); (e.currentTarget as HTMLButtonElement).blur(); }}
-                className={`capitalize transform transition-all ${active ? 'ring-2 ring-offset-2 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 ${isFirst ? 'rounded-l-md' : ''} ${isLast ? 'rounded-r-md' : ''}`}
+                className={`capitalize transform transition-all ${active ? 'ring-2 ring-offset-0 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 ${isFirst && isLast ? '!rounded-md' : isFirst ? 'rounded-l-md !rounded-r-none' : isLast ? 'rounded-r-md !rounded-l-none' : '!rounded-none'}`}
                 aria-pressed={active}
-                aria-label={`Filter ${cat}`}
-              >
+                aria-label={`Filter ${cat}`}>
                 {cat}
               </Button>
             )
           })}
         </ButtonGroup>
-
         {/* Content categories group */}
-        <ButtonGroup>
+        <ButtonGroup className="gap-1">
           {content_categories.map((cat, idx) => {
             const active = activeFilters.includes(cat);
             const isFirst = idx === 0;
@@ -146,17 +144,17 @@ function Stories() {
             return (
               <Button
                 key={cat}
-                variant="ghost"
+                variant="outline"
                 onClick={(e) => { toggleFilter(cat); (e.currentTarget as HTMLButtonElement).blur(); }}
-                className={`capitalize transform transition-all ${active ? 'ring-2 ring-offset-2 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 ${isFirst ? 'rounded-l-md' : ''} ${isLast ? 'rounded-r-md' : ''}`}
+                className={`capitalize transform transition-all ${active ? 'ring-2 ring-offset-0 ring-primary/60 shadow-lg' : 'ring-0'} focus:ring-0 focus-visible:ring-0 focus:outline-none active:ring-0 ${isFirst && isLast ? '!rounded-md' : isFirst ? 'rounded-l-md !rounded-r-none' : isLast ? 'rounded-r-md !rounded-l-none' : '!rounded-none'}`}
                 aria-pressed={active}
-                aria-label={`Filter ${cat}`}
-              >
+                aria-label={`Filter ${cat}`}>
                 {cat}
               </Button>
             )
           })}
         </ButtonGroup>
+
       </div>
       {/* Grid med kort (preview) */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
