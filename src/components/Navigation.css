@@ -1,33 +1,110 @@
 @reference "../index.css";
 
 .nav-container {
-    @apply fixed top-0 left-0 right-0 z-50 bg-black;
+    @apply fixed top-0 left-0 right-0 z-50 bg-primary;
 }
 
 .nav-content {
-    @apply px-4 py-3;
+    @apply px-4;
 }
 
 .nav-flex {
-    @apply flex items-center justify-between;
+    @apply relative flex items-center justify-center h-16;
 }
 
 .nav-brand {
-    @apply text-xl font-bold text-white hover:text-gray-300 transition-colors;
+    @apply absolute left-0 text-xl font-bold text-white hover:text-gray-300 transition-colors w-[60px];
 }
 
 .nav-links {
-    @apply flex gap-2;
+    @apply flex;
+}
+
+.nav-button {
+    @apply bg-primary text-white hover:bg-primary-foreground transition-colors h-full rounded-none focus:outline-none focus-visible:ring-0;
 }
 
 .nav-button-active {
-    @apply bg-white text-black hover:bg-gray-100;
+    @apply bg-primary-foreground;
 }
 
-.nav-button-inactive {
-    @apply hover:bg-white/20;
+.nav-button-active-text {
+    @apply text-transparent;
+    background-image: linear-gradient(to right, #FF9000, #E83D84);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.nav-button-base {
-    @apply text-gray-500 hover:text-black transition-colors;
+/* ── Desktop vs Mobile visibility ── */
+
+.nav-links-desktop {
+    @apply hidden md:flex h-full;
+}
+
+.hamburger-button {
+    @apply absolute bg-transparent right-0 flex items-center justify-center w-10 h-10 md:hidden focus:outline-none;
+}
+
+/* ── Hamburger icon lines ── */
+
+.hamburger-icon {
+    @apply relative flex flex-col justify-center items-center w-6 h-6;
+}
+
+.hamburger-line {
+    @apply block absolute h-0.5 w-6 bg-white rounded transition-all duration-300;
+}
+
+.hamburger-line-1 {
+    transform: translateY(-7px);
+}
+
+.hamburger-line-2 {
+    /* middle line */
+}
+
+.hamburger-line-3 {
+    transform: translateY(7px);
+}
+
+/* When open, animate into an X */
+.hamburger-icon-open .hamburger-line-1 {
+    transform: rotate(45deg);
+}
+
+.hamburger-icon-open .hamburger-line-2 {
+    @apply opacity-0;
+}
+
+.hamburger-icon-open .hamburger-line-3 {
+    transform: rotate(-45deg);
+}
+
+/* ── Mobile dropdown menu ── */
+
+.mobile-menu {
+    @apply md:hidden overflow-hidden bg-primary;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+}
+
+.mobile-menu-open {
+    max-height: 300px;
+}
+
+.mobile-menu-inner {
+    @apply flex flex-col px-4 pb-4;
+}
+
+.mobile-menu-link {
+    @apply py-3 px-4 text-white text-sm transition-colors rounded;
+}
+
+.mobile-menu-link:hover {
+    @apply bg-primary-foreground;
+}
+
+.mobile-menu-link-active {
+    @apply bg-primary-foreground;
 }

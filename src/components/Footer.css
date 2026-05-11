@@ -1,0 +1,53 @@
+@reference "../index.css";
+
+.footer-container {
+  @apply w-full bg-primary text-white;
+}
+
+.footer-inner {
+  @apply w-full px-6 py-5 grid gap-8 md:grid-cols-[minmax(320px,1fr)_minmax(320px,1fr)_minmax(240px,320px)];
+}
+
+.footer-column h2 {
+  @apply text-xl font-semibold mb-3;
+}
+
+.footer-column p {
+  @apply text-sm leading-6 text-white;
+}
+
+.footer-link {
+  @apply inline-block text-white underline hover:text-white/90 ml-1;
+}
+
+.footer-link-emphasis {
+  @apply inline-block text-white italic hover:text-white/90 ml-1;
+}
+
+.footer-right-column {
+  @apply flex flex-col items-center justify-between gap-6 md:items-end;
+}
+
+.footer-logo {
+  @apply w-15 h-auto;
+}
+
+.footer-social-links {
+  @apply flex flex-wrap gap-5 mt-2 justify-center md:justify-end;
+}
+
+.footer-social-link {
+  @apply inline-flex items-center justify-center w-15 h-15 text-white;
+}
+
+.footer-social-icon {
+  @apply w-10 h-10;
+}
+
+.footer-social-icon-dive {
+  @apply w-15 h-15 mr-10;
+}
+
+.footer-bottom {
+  @apply border-t border-none text-sm text-white/70 py-2 text-center md:text-right px-6;
+}
